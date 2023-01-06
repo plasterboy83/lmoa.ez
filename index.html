@@ -1,0 +1,271 @@
+<html>
+
+<head>
+  <title id="title">nerds.corp - Games</title>
+  <link id="icon" rel="icon" href="nerds-icon.ico" type="image/x-icon" />
+  <style>
+    :root {
+      --switch: #cccccc;
+    }
+
+    li {
+      list-style-type: disc;
+    }
+
+    * {
+      transition-duration: 0.25s;
+      font-family: arial;
+    }
+
+    .li-l {
+      color: #000000;
+    }
+
+    .li-d {
+      color: #ffffff;
+    }
+
+    .openbullet-l {
+      list-style-type: circle;
+      color: #000000;
+    }
+
+    .openbullet-d {
+      list-style-type: circle;
+      color: #ffffff;
+    }
+
+    .a-l {
+      color: #0000ff;
+    }
+
+    .a-d {
+      color: #57dcbe;
+    }
+
+    .text-l {
+      color: #000000;
+    }
+
+    .text-d {
+      color: #ffffff;
+    }
+
+    .p-l {
+      color: #000000;
+    }
+
+    .p-d {
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body style="">
+  <center>
+    <img id="logo" src="nerds-logo.png" alt="nerds.corp" width="375px" height="150px">
+      <h3>Please do <label style="color: #ff0000">not</label> play these during class. These games are for home unless you are given permission in school. The main purpose of nerds.corp is a place to play games on a chromebook <label style="color: #ff0000">in your free time!</label> Access will be revoked if you don't follow the rules.</h3>
+  </center>
+  <p></p>
+  <h2>Commands</h2>
+  <p></p>
+  <div style="display: table;">
+    <div style="margin-top: 10px; display: table-cell; vertical-align: middle;">
+      <p style="font-size: 20px;">Apperance</p>
+    </div><button id="app" class="switch" data-state="off" onclick="var slider = document.getElementById('appSlider'); var bar = document.getElementById('app'); let state = bar.getAttribute('data-state'); if (state == 'on') {bar.setAttribute('data-state', 'off'); slider.style.left = '3'; lightMode();} else {bar.setAttribute('data-state', 'on'); slider.style.left = '24'; darkMode();}" style="margin-left: 10px; background-color: var(--switch); border: none; padding: 0px; width: 52px; height: 31px; position: relative; border-radius: 16px; transition-duration: 0.25s; cursor: pointer;">
+      <div id="appSlider" style="background-color: #ffffff; width: 25px; height: 25px; position: absolute; top: 3; left: 3; transition-duration: 0.25s; border-radius: 100px; border: none; padding: 0px; box-shadow: 0px 2px 3px rgba(0,0,0,0.3); pointer-events: none;"></div>
+    </button>
+  </div>
+  <p></p>
+  <button onclick="supriseMe();" style="margin-left: 10px; background-color: var(--switch); border: none; padding: 0px; width: 104px; height: 31px; position: relative; border-radius: 16px; transition-duration: 0.25s; cursor: pointer;">Suprise Me!</button>
+  <p></p>
+  <h2>Games</h2>
+  <ul>
+    <li class="li-l">
+      <label class="p-l" href="sg.html">Scratch</label>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="gd.html">Geometry Dash</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="fnaf.html">FNAF</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="fnaf2.html">FNAF 2</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="pvz.html">Plants vs. Zombies</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="te.html">Terraria</a></li>
+      </ul>
+    </li>
+    <li class="li-l">
+      <label class="p-l" href="#html5">HTML5</label>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="slope.html">Slope</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="btd4.html">BTD4</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="cm.html">Coco Monkey</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="tr2.html">Temple Run 2</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="tr.html">Tomb Runner</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="ss.html">Subway Surfers</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="bg.html">Brawl Guys</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="sb.html">Skyblock</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="rb.html">Retrobowl</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="Offline_Download_Version.html">Minecraft</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="1v1.html">1v1 .lol</a></li>
+      </ul>
+    </li>
+    <li class="li-l">
+      <label class="p-l" href="#ruffle">Ruffle</label>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="aow.html">Age of War</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="whg.html">World's Hardest Game</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="whg2.html">World's Hardest Game 2</a></li>
+      </ul>
+    </li>
+    <li class="li-l">
+      <label class="p-l" href="#git">Github</label>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="cc/index.html">Cookie Clicker</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="1v1.html">1v1.LOL</a></li>
+      </ul>
+    </li>
+    <li class="li-l">
+      <label class="p-l" href="#jg">Jame's Games</label>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="bouncyballz.html">Bouncy Ballz</a></li>
+      </ul>
+    </li>
+  </ul>
+  <script>
+    var logo = document.getElementById("logo");
+
+    function lightMode() {
+      var a = document.getElementsByTagName("a");
+      var h1 = document.getElementsByTagName("h1");
+      var h2 = document.getElementsByTagName("h2");
+      var h3 = document.getElementsByTagName("h3");
+      var label = document.getElementsByTagName("label");
+      var li = document.getElementsByTagName("li");
+      var p = document.getElementsByTagName("p");
+      var button = document.getElementsByTagName("button");
+      var switchs = document.getElementsByClassName("switch");
+      document.body.style.backgroundColor = "#ffffff";
+      logo.src = "nerds-logo.png";
+      for (let i = 0; i < a.length; i++) {
+        a[i].className = "a-l";
+      }
+      for (let i = 0; i < h1.length; i++) {
+        h1[i].className = "text-l";
+      }
+      for (let i = 0; i < h2.length; i++) {
+        h2[i].className = "text-l";
+      }
+      for (let i = 0; i < h3.length; i++) {
+        h3[i].className = "text-l";
+      }
+      for (let i = 0; i < label.length; i++) {
+        label[i].className = "text-l";
+      }
+      for (let i = 0; i < li.length; i++) {
+        li[i].className = "li-l";
+      }
+      for (let i = 0; i < p.length; i++) {
+        p[i].className = "p-l";
+      }
+      for (let i = 0; i < button.length; i++) {
+        button[i].style.color = "#000000"
+      }
+      document.querySelector(":root").style.setProperty("--switch", "#cccccc");
+      for (let i = 0; i < switchs.length; i++) {
+        if (switchs[i].getAttribute("data-state") == "off") {
+          switchs[i].style.backgroundColor = "var(--switch)"
+        }
+        if (switchs[i].id == "appSlider") {
+          switchs[i].style.backgroundColor = "var(--switch)"
+        }
+      }
+    }
+
+    function darkMode() {
+      var a = document.getElementsByTagName("a");
+      var h1 = document.getElementsByTagName("h1");
+      var h2 = document.getElementsByTagName("h2");
+      var h3 = document.getElementsByTagName("h3");
+      var label = document.getElementsByTagName("label");
+      var li = document.getElementsByTagName("li");
+      var p = document.getElementsByTagName("p");
+      var button = document.getElementsByTagName("button");
+      var switchs = document.getElementsByClassName("switch");
+      document.body.style.backgroundColor = "#000000";
+      logo.src = "nerds-logo-dark.png";
+      for (let i = 0; i < a.length; i++) {
+        a[i].className = "a-d";
+      }
+      for (let i = 0; i < h1.length; i++) {
+        h1[i].className = "text-d";
+      }
+      for (let i = 0; i < h2.length; i++) {
+        h2[i].className = "text-d";
+      }
+      for (let i = 0; i < h3.length; i++) {
+        h3[i].className = "text-d";
+      }
+      for (let i = 0; i < label.length; i++) {
+        label[i].className = "text-d";
+      }
+      for (let i = 0; i < li.length; i++) {
+        li[i].className = "li-d";
+      }
+      for (let i = 0; i < p.length; i++) {
+        p[i].className = "p-d";
+      }
+      for (let i = 0; i < button.length; i++) {
+        button[i].style.color = "#ffffff";
+      }
+      document.querySelector(":root").style.setProperty("--switch", "#3A393E");
+      for (let i = 0; i < switchs.length; i++) {
+        if (switchs[i].getAttribute("data-state") == "off") {
+          switchs[i].style.backgroundColor = "var(--switch)";
+        }
+        if (switchs[i].id == "appSlider") {
+          switchs[i].style.backgroundColor = "var(--switch)";
+        }
+      }
+    }
+
+    function supriseMe() {
+      var a = document.getElementsByTagName("a");
+      var random = Math.floor(Math.random() * a.length) + 1;
+      window.open(a[random].getAttribute("href"), "_blank");
+    }
+  </script>
+</body>
+
+</html>

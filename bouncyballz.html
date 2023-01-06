@@ -1,0 +1,254 @@
+<html>
+
+<head>
+  <style>
+    body {
+      padding: 0px;
+      margin: 0px;
+      overflow: hidden;
+    }
+
+    canvas {
+      padding: 0px;
+      margin: 0px 0px 0px 0px;
+    }
+
+    p {
+      position: fixed;
+    }
+
+    #score {
+      left: 25px;
+    }
+
+    #version {
+      right: 25px;
+      bottom: 10px;
+    }
+
+    #main {
+      background-color: #efefef;
+    }
+
+    #menu {
+      background-color: transparent;
+      border: 0px;
+    }
+
+    .button {
+      font-size: 25px;
+      position: fixed;
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+    }
+
+    #play {
+      background-color: #00bb00;
+      background-image: linear-gradient(to top, #007700, #00aa00);
+      color: #ffffff;
+      border: 2px solid #003300;
+    }
+
+    #play:hover {
+      background-image: linear-gradient(to top, #005500, #009a00);
+      background-color: #00aa00;
+    }
+    
+    #settings {
+      background-color: #00bb00;
+      background-image: linear-gradient(to top, #007700, #00aa00);
+      color: #ffffff;
+      border: 2px solid #003300;
+    }
+
+    #settings:hover {
+      background-image: linear-gradient(to top, #005500, #009a00);
+      background-color: #00aa00;
+    }
+  </style>
+</head>
+
+<body>
+    <title id="title">Bouncy Ballz - nerds.corp</title>
+  <link id="icon" rel="icon" href="nerds-icon.ico" type="image/x-icon" />
+  <center>
+    <p id="score">score: 0</p>
+    <p id="version">version 1.1</p>
+    <canvas id="main" width="0" height="0"></canvas>
+    <dialog id="menu">
+      <button id="play" class="button">Play</button>
+      <button id="settings" class="button">Settings</button>
+    </dialog>
+  </center>
+  <script>
+    var main = document.getElementById("main");
+    var menu = document.getElementById("menu");
+    var play = document.getElementById("play");
+    var settings = document.getElementById("settings");
+    var interval = null;
+    var timeout = null;
+    var ctx = main.getContext("2d");
+    var score = 0;
+    var scoreCounter = document.getElementById("score");
+    var x = null;
+    var y = main.height = window.innerHeight - 20;
+    var dx = 2;
+    var dy = -2;
+    var ballColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    var mainMenuAllowed = false;
+    var startAllowed = false;
+    var resizeEvent = null;
+    var ballRadius = 20;
+    var ball = null;
+    var mouseX = null;
+    var mouseY = null;
+
+    function start() {
+      if (!startAllowed) {
+        startAllowed = true;
+        console.log("starting");
+        clearInterval(interval);
+        x = Math.floor(Math.random() * main.width);
+        if (x > main.width - ballRadius) {
+          x += -ballRadius * 2;
+        } else if (x < ballRadius * 2) {
+          x += ballRadius * 2;
+        }
+        y = main.height - 30;
+        ballRadius = 20;
+        ballColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        score = 0;
+        time = 0;
+        dx = 2;
+        dy = -2;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          startAllowed = true;
+          clearCurrentInterval();
+          mainMenu();
+        }, 3000)
+        interval = setInterval(draw, 10);
+      }
+    }
+
+    function mainMenu() {
+      if (!mainMenuAllowed) {
+        console.log("main menu");
+        mainMenuAllowed = true;
+        play.style.left =
+          main.getBoundingClientRect().left + main.width / 2 - 50 + "px";
+        settings.style.left =
+          main.getBoundingClientRect().left + main.width / 2 + 50 + "px";
+        play.style.top =
+          main.getBoundingClientRect().top + main.height / 2 - 50 + "px";
+        settings.style.top =
+          main.getBoundingClientRect().top + main.width / 2 - 50 + "px";
+        menu.show();
+        play.addEventListener("click", () => {
+          menu.close();
+          mainMenuAllowed = false;
+          start();
+        });
+      }
+    }
+
+    function clearCurrentInterval() {
+      if (interval !== null) {
+        clearInterval(interval);
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, main.width, main.height);
+      ctx.beginPath();
+      ball = ctx.arc(x, y, ballRadius, 0, Math.PI * 2, false);
+      ctx.fillStyle = ballColor;
+      ctx.fill();
+      ctx.closePath();
+      if (x + dx > main.width - ballRadius || x + dx < ballRadius) {
+        ballColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        dx = -dx;
+        new Audio("Ping-pong-ball-bounce-sound-effect.mp3").play();
+      }
+      if (y + dy > main.height - ballRadius || y + dy < ballRadius) {
+        ballColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        dy = -dy;
+        new Audio("Ping-pong-ball-bounce-sound-effect.mp3").play();
+      }
+      x += dx;
+      y += dy;
+      ballRadius += 0.01;
+      if (dx > 0) {
+        dx += 0.005;
+      } else {
+        dx += -0.005;
+      }
+      if (dy > 0) {
+        dy += 0.005;
+      } else {
+        dy += -0.005;
+      }
+      if (mouseX !== null && mouseY !== null) {
+        if (
+          mouseX > x &&
+          mouseX < x + ballRadius &&
+          mouseY > y &&
+          mouseY < y + ballRadius
+        ) {
+          startAllowed = false;
+          clearCurrentInterval();
+          mainMenu();
+        }
+      }
+      score += 1;
+      scoreCounter.innerHTML = "score: " + score;
+    }
+    main.addEventListener("mouseleave", () => {
+      if (interval !== null) {
+        clearInterval(interval);
+        startAllowed = false;
+      }
+      mainMenu();
+    });
+    document.addEventListener("mousemove", () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        startAllowed = true;
+        clearCurrentInterval();
+        mainMenu();
+      }, 3000)
+      mouseX = window.event.clientX;
+      mouseY = window.event.clientY;
+      if (
+        window.event.clientX > x &&
+        window.event.clientX < x + ballRadius * 2 &&
+        window.event.clientY > y &&
+        window.event.clientY < y + ballRadius * 2
+      ) {
+        startAllowed = false;
+        clearCurrentInterval();
+        mainMenu();
+      }
+    });
+    main.width = document.body.clientWidth;
+    main.height = window.innerHeight;
+    x = Math.floor(Math.random() * main.width);
+    console.log(x);
+    resizeEvent = addEventListener("resize", () => {
+      main.width = document.body.clientWidth;
+      main.height = window.innerHeight;
+      play.style.left =
+        main.getBoundingClientRect().left + main.width / 2 - 50 + "px";
+      play.style.top =
+        main.getBoundingClientRect().top + main.height / 2 - 50 + "px";
+      settings.style.left =
+        main.getBoundingClientRect().left + main.width / 2 + 50 + "px";
+      settings.style.top =
+        main.getBoundingClientRect().top + main.height / 2 - 50 + "px";
+    });
+    mainMenu();
+  </script>
+</body>
+
+</html>
