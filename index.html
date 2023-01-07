@@ -1,8 +1,8 @@
 <html>
 
-<head>
-  <title id="title">nerds.corp - Games</title>
-  <link id="icon" rel="icon" href="nerds-icon.ico" type="image/x-icon" />
+<head style="background-color: #5a5a5a;">
+  <title id="title">Classes</title>
+  <link id="icon" rel="icon" href="nerds-icon.png" type="image/x-icon" />
   <style>
     :root {
       --switch: #cccccc;
@@ -36,11 +36,14 @@
     }
 
     .a-l {
-      color: #0000ff;
+      color: #02ffdd;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      
     }
 
     .a-d {
-      color: #57dcbe;
+      color: #ff7300;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
     }
 
     .text-l {
@@ -61,19 +64,18 @@
   </style>
 </head>
 
-<body style="">
+<body style="background-color: rgb(134, 134, 134);">
   <center>
-    <img id="logo" src="nerds-logo.png" alt="nerds.corp" width="375px" height="150px">
-      <h3>Please do <label style="color: #ff0000">not</label> play these during class. These games are for home unless you are given permission in school. The main purpose of nerds.corp is a place to play games on a chromebook <label style="color: #ff0000">in your free time!</label> Access will be revoked if you don't follow the rules.</h3>
-  </center>
-  <p></p>
+    <img id="logo" src="nerds-logo.png" alt="nerds.corp" width="500px" height="500px">
+      <h3>lmoa do <label style="color: #ff0000">whatever</label> you want this is purely a passion project and i have no idea how you found out about this (sorry jame) <label style="color: #ff0000">if anything bad happens to you due to this website its not my fault!!!!</label> 
+  <p></p></center>
   <h2>Commands</h2>
   <p></p>
   <div style="display: table;">
     <div style="margin-top: 10px; display: table-cell; vertical-align: middle;">
       <p style="font-size: 20px;">Apperance</p>
     </div><button id="app" class="switch" data-state="off" onclick="var slider = document.getElementById('appSlider'); var bar = document.getElementById('app'); let state = bar.getAttribute('data-state'); if (state == 'on') {bar.setAttribute('data-state', 'off'); slider.style.left = '3'; lightMode();} else {bar.setAttribute('data-state', 'on'); slider.style.left = '24'; darkMode();}" style="margin-left: 10px; background-color: var(--switch); border: none; padding: 0px; width: 52px; height: 31px; position: relative; border-radius: 16px; transition-duration: 0.25s; cursor: pointer;">
-      <div id="appSlider" style="background-color: #ffffff; width: 25px; height: 25px; position: absolute; top: 3; left: 3; transition-duration: 0.25s; border-radius: 100px; border: none; padding: 0px; box-shadow: 0px 2px 3px rgba(0,0,0,0.3); pointer-events: none;"></div>
+      <div id="appSlider" style="background-color: #5a5a5a; width: 25px; height: 25px; position: absolute; top: 3; left: 3; transition-duration: 0.25s; border-radius: 100px; border: none; padding: 0px; box-shadow: 0px 2px 3px rgba(0,0,0,0.3); pointer-events: none;"></div>
     </button>
   </div>
   <p></p>
@@ -132,7 +134,10 @@
         <li class="li-l"><a target="_blank" class="a-l" href="Offline_Download_Version.html">Minecraft</a></li>
       </ul>
       <ul>
-        <li class="li-l"><a target="_blank" class="a-l" href="1v1.html">1v1 .lol</a></li>
+        <li class="li-l"><a target="_blank" class="a-l" href="1v1.html">OLD 1v1.lol (has no players you will most likely run into someone from the school)</a></li>
+      </ul>
+      <ul>
+        <li class="li-l"><a target="_blank" class="a-l" href="lolwarning.html">1v1.lol (new and better, more players)</a></li>
       </ul>
     </li>
     <li class="li-l">
@@ -145,15 +150,6 @@
       </ul>
       <ul>
         <li class="li-l"><a target="_blank" class="a-l" href="whg2.html">World's Hardest Game 2</a></li>
-      </ul>
-    </li>
-    <li class="li-l">
-      <label class="p-l" href="#git">Github</label>
-      <ul>
-        <li class="li-l"><a target="_blank" class="a-l" href="cc/index.html">Cookie Clicker</a></li>
-      </ul>
-      <ul>
-        <li class="li-l"><a target="_blank" class="a-l" href="1v1.html">1v1.LOL</a></li>
       </ul>
     </li>
     <li class="li-l">
@@ -176,7 +172,7 @@
       var p = document.getElementsByTagName("p");
       var button = document.getElementsByTagName("button");
       var switchs = document.getElementsByClassName("switch");
-      document.body.style.backgroundColor = "#ffffff";
+      document.body.style.backgroundColor = "#868686";
       logo.src = "nerds-logo.png";
       for (let i = 0; i < a.length; i++) {
         a[i].className = "a-l";
